@@ -1,0 +1,187 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// @import "items";
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #f8f8f8;
+}
+
+.header {
+  width: 100%;
+  height: 128px;
+  background-color: #f8f8f8;
+  &__logo {
+    text-align: center;
+    margin: 0 auto;
+    line-height: 12;
+  }
+}
+
+.container {
+  .main {
+    padding: 20px;
+    .files {
+      display: flex;
+      margin: 0 auto;
+      margin-left: 40px;
+      margin-top: 10px;
+      background-color: white;
+      &__item-image-col{
+        height: 180px;
+        width: 180px;
+        background-color: #f8f8f8;
+        margin-right: 10px;
+        border: solid 1px gray;
+      }
+    }
+    .item-content-fild {
+      width: 900px;
+      margin: 0 auto;
+      background-color: white;
+      border-bottom: solid 1px #f8f8f8;
+      padding: 40px;
+      .item-content{
+        .note {
+          color: gray;
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .item-dt{
+          display: flex;
+          padding-top: 20px;
+          .control-label {
+            font-size: 14px;
+            margin-left: 10px;
+            font-weight: 600;
+          }
+          .required {
+            font-size: 11px;
+            background-color: #ff0211;
+            height: 18px;
+            color: white;
+            padding: 0 3px;
+            border-radius: 2px;
+            margin-left: 10px;
+            font-weight: 600;
+          }
+          .any {
+            font-size: 11px;
+            background-color: #bfbfbf;
+            height: 18px;
+            color: white;
+            padding: 0 3px;
+            border-radius: 2px;
+            margin-left: 10px;
+            font-weight: 600;
+          }
+        }
+        .item-dt_text-fild input {
+          width: 90%;
+          height: 45px;
+          margin: 1%;
+          padding: 10px;
+          border: solid 1px #ccc;
+          border-radius: 5px;
+        }
+      }
+        .item-dt_text-area textarea {
+          width: 90%;
+          height: 200px;
+          margin: 1%;
+          padding: 10px;
+          border: solid 1px #ccc;
+          border-radius: 5px;
+        }
+        .item-dt_text-select select {
+          width: 90%;
+          height: 45px;
+          margin: 1%;
+          padding: 10px;
+          border: solid 1px #ccc;
+          border-radius: 5px;
+          background-color: white;
+        }
+      }
+    
+    .item-content-fild_price {
+      width: 900px;
+      margin: 0 auto;
+      background-color: white;
+      border-bottom: solid 1px #f8f8f8;
+      padding: 40px;
+      .item-content{
+        .note {
+          color: gray;
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .item-dt-price{
+          display: flex;
+          justify-content: space-between;
+        
+        
+          .item-dt{
+            display: flex;
+            padding-top: 20px;
+            .control-label {
+              font-size: 14px;
+              margin-left: 10px;
+              font-weight: 600;
+            }
+            .required {
+              font-size: 11px;
+              height: 18px;
+              background-color: #ff0211;
+              color: white;
+              padding: 0 3px;
+              border-radius: 2px;
+              margin-left: 10px;
+              font-weight: 600;
+            }
+          }
+          .item-dt_text-fild input {
+            width: 350px;
+            height: 45px;
+            margin: 1%;
+            padding: 10px;
+            border: solid 1px #ccc;
+            border-radius: 5px;
+            margin-right: 80px;
+            text-align: right;
+          }
+      .item-content-reactid {
+        button.sellbtn {
+          background-color: #3CCACE;
+        }
+        }
+        }
+      }
+    }
+  }
+}
+.footer {
+  &__conditions {
+    display: flex;
+    justify-content: center;
+    p {
+      margin: 10px;
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+  &__logo{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  p {
+    text-align: center;
+    font-size: 13px;
+  }
+}
