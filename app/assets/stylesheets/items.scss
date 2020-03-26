@@ -26,41 +26,27 @@ body {
 .container {
   .main {
     padding: 20px;
-    .files {
-      display: flex;
-      margin: 0 auto;
-      margin-left: 40px;
-      margin-top: 10px;
-      background-color: white;
-      &__item-image-col{
-        height: 180px;
-        width: 180px;
-        background-color: #f8f8f8;
-        margin-right: 10px;
-        border: solid 1px gray;
-      }
-    }
-    .item-content-fild {
+    .item-content {
       width: 900px;
       margin: 0 auto;
       background-color: white;
       border-bottom: solid 1px #f8f8f8;
       padding: 40px;
-      .item-content{
+      &__fild{
         .note {
           color: gray;
           font-size: 14px;
           font-weight: 600;
         }
-        .item-dt{
+        &__dt{
           display: flex;
           padding-top: 20px;
-          .control-label {
+          &__label {
             font-size: 14px;
             margin-left: 10px;
             font-weight: 600;
           }
-          .required {
+          &__required {
             font-size: 11px;
             background-color: #ff0211;
             height: 18px;
@@ -70,7 +56,7 @@ body {
             margin-left: 10px;
             font-weight: 600;
           }
-          .any {
+          &__any {
             font-size: 11px;
             background-color: #bfbfbf;
             height: 18px;
@@ -81,7 +67,22 @@ body {
             font-weight: 600;
           }
         }
-        .item-dt_text-fild input {
+      }
+      &__files {
+        display: flex;
+        margin: 0 auto;
+        margin-left: 40px;
+        margin-top: 10px;
+        background-color: white;
+        &__image-col {
+          height: 180px;
+          width: 180px;
+          background-color: #f8f8f8;
+          margin-right: 10px;
+          border: solid 1px gray;
+        }
+      }
+        &__text-fild input {
           width: 90%;
           height: 45px;
           margin: 1%;
@@ -89,8 +90,8 @@ body {
           border: solid 1px #ccc;
           border-radius: 5px;
         }
-      }
-        .item-dt_text-area textarea {
+      
+        &__text-area textarea {
           width: 90%;
           height: 200px;
           margin: 1%;
@@ -98,7 +99,7 @@ body {
           border: solid 1px #ccc;
           border-radius: 5px;
         }
-        .item-dt_text-select select {
+        &__text-select select {
           width: 90%;
           height: 45px;
           margin: 1%;
@@ -107,69 +108,47 @@ body {
           border-radius: 5px;
           background-color: white;
         }
-      }
-    
-    .item-content-fild_price {
-      width: 900px;
-      margin: 0 auto;
-      background-color: white;
-      border-bottom: solid 1px #f8f8f8;
-      padding: 40px;
-      .item-content{
-        .note {
-          color: gray;
-          font-size: 14px;
-          font-weight: 600;
-        }
-        .item-dt-price{
-          display: flex;
-          justify-content: space-between;
-        
-        
-          .item-dt{
-            display: flex;
-            padding-top: 20px;
-            .control-label {
-              font-size: 14px;
-              margin-left: 10px;
-              font-weight: 600;
-            }
-            .required {
-              font-size: 11px;
-              height: 18px;
-              background-color: #ff0211;
-              color: white;
-              padding: 0 3px;
-              border-radius: 2px;
-              margin-left: 10px;
-              font-weight: 600;
-            }
-          }
-          .item-dt_text-fild input {
-            width: 350px;
-            height: 45px;
-            margin: 1%;
-            padding: 10px;
-            border: solid 1px #ccc;
-            border-radius: 5px;
-            margin-right: 80px;
-            text-align: right;
-          }
-      .item-content-reactid {
-        button.sellbtn {
+      &__reactid {
+        text-align: center;
+        .sellbtn{
           background-color: #3CCACE;
+          font-size: 17px;
+          color: #fff;
+          width: 50%;
+          height: 70px;
+          margin: 30px 0;
+          border-radius: 5px;
+          font-weight: 600;
+          border: none;
         }
-        }
+        a {
+          text-decoration: none;
+          margin-top: 20px;
+          color:#0095ee;
+          font-size: 14px;
         }
       }
     }
+    
   }
 }
+
+// edit用ヘッダー
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: solid 1px #f8f8f8;
+  padding-bottom: 20px;
+  
+}
+
 .footer {
   &__conditions {
     display: flex;
     justify-content: center;
-    p {
+    h5 {
       margin: 10px;
       font-size: 12px;
       text-align: center;
