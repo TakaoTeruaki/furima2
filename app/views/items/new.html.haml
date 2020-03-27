@@ -23,85 +23,94 @@
       .item-content
         .item-content__fild
           .item-content__fild__dt
-            .item-content__fild__dt__label 商品名
+            .item-content__fild__dt__label 
+            = f.label :name, "商品名"
             .item-content__fild__dt__required 必須
-          .item-content__text-fild
-            -# %input.text{:name => "name", :placeholder => "40文字まで", :type => "neme", :value => ""}
-            = f.text_field :name, class:"item-content__text-fild",placeholder: "商品名（必須 40文字まで)"
+          %div
+            = f.text_field :name, class:"item-content__text-fild",placeholder: "40文字まで"
         .item-content__fild
           .item-content__fild__dt
-            .item-content__fild__dt__label 商品説明
+            .item-content__fild__dt__label
+            = f.label :description, "商品説明"
             .item-content__fild__dt__required 必須
-          .item-content__text-area
-            -# %textarea{:cols => "40", :placeholder => "商品の説明", :name => "", :rows => "4"}
-            = f.text_area :name, class:"item-content__text-area",placeholder: "商品の説明"
+          %div
+            = f.text_area :name, class:"item-content__text-area",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
       -# 商品詳細/カテゴリー/サイズ/ブランド/商品の状態
       .item-content
         .item-content__fild
           %p.note 商品の詳細
           .item-content__fild__dt
-            .item-content__fild__dt__label カテゴリー
+            .item-content__fild__dt__label
+            = f.label :category_id, "カテゴリー"
             .item-content__fild__dt__required 必須
-          .item-content__text-select
-            %select{:name => "カテゴリー", :size => ""}
-            %select{:name => "カテゴリー", :size => ""}
-            %select{:name => "カテゴリー", :size => ""}
-              = icon('fas','chevron-down')
+          %div
+            = f.collection_select :category, Category.all, :id, :name, prompt: "" ,class: "item-content__text-select"
+            -# %select{:name => "カテゴリー", :size => ""}
+            -# %select{:name => "カテゴリー", :size => ""}
+            -# %select{:name => "カテゴリー", :size => ""}
         .item-content__fild
           .item-content__fild__dt
-            .item-content__fild__dt__label サイズ
+            .item-content__fild__dt__label 
+            = f.label :size_id, "サイズ"
             .item-content__fild__dt__required 必須
-          .item-content__text-select
-            %select{:name => "カテゴリー", :size => ""}
+            %div
+            = f.collection_select :size, Size.all, :id, :name, prompt: "",class: "item-content__text-select"
         .item-content__fild
           .item-content__fild__dt
-            .item-content__fild__dt__label ブランド
+            .item-content__fild__dt__label
+            = f.label :bland_id, "ブランド"
             .item-content__fild__dt__any 任意
-          .item-content__text-fild
-            %input.text{:name => "name", :placeholder => "例）シャネル", :type => "", :value => ""}
-            -# = f.text_field :brand_id, class:"item-content__text-fild",placeholder: "例）シャネル"
+            %div
+            = f.text_field :name, class:"item-content__text-fild",placeholder: "例シャネル"
+
         .item-content__fild
           .item-content__fild__dt
-            .item-content__fild__dt__label 商品の状態
+            .item-content__fild__dt__label
+            = f.label :status, "商品の状態"
             .item-content__fild__dt__required 必須
-          .item-content__text-select
-            %select{:name => "カテゴリー", :size => ""}
+            = f.collection_select :status, Status.all, :id, :name, prompt: "",class: "item-content__text-select"
+
       -# 配送について/配送の負担/発送の方法/発送元の地域/発送までの日数
       .item-content
         .item-content__fild
           %p.note 配送について
           .item-content__fild__dt
-            .item-content__fild__dt__label 配送の負担
+            .item-content__fild__dt__label 
+            = f.label :burden, "配送の負担"
             .item-content__fild__dt__required 必須
-          .item-content__text-select
-            %select{:name => "カテゴリー", :size => ""}
+            %div
+            = f.collection_select :burden, Burden.all, :id, :name, prompt: "",class: "item-content__text-select"
         .item-content__fild
           .item-content__fild__dt
             .item-content__fild__dt__label 発送の方法
+            = f.label :method, "発送の方法"
             .item-content__fild__dt__required 必須
-          .item-content__text-select
-            %select{:name => "カテゴリー", :size => ""}
+            %div
+            = f.collection_select :method, Method.all, :id, :name, prompt: "",class: "item-content__text-select"
         .item-content__fild
           .item-content__fild__dt
-            .item-content__fild__dt__label 発送元の地域
+            .item-content__fild__dt__label 
+            = f.label :prefectures_id, "発送元の地域"
             .item-content__fild__dt__required 必須
-          .item-content__text-select
-            %select{:name => "カテゴリー", :size => ""}
+            %div
+            = f.collection_select :prefactures, Prefactures.all, :id, :name, prompt: "",class: "item-content__text-select"
         .item-content__fild
           .item-content__fild__dt
-            .item-content__fild__dt__label 発送までの日数
+            .item-content__fild__dt__label
+            = f.label :date, "発送までの日数"
             .item-content__fild__dt__required 必須
-          .item-content__text-select
-            %select{:name => "カテゴリー", :size => ""}
+            %div
+            = f.collection_select :date, Date.all, :id, :name, prompt: "",class: "item-content__text-select"
+
       -# 価格/出品ボタン/もどるリンク
       .item-content
         .item-content__fild
           %p.note 価格（¥300~9,999,999)
           .item-content__fild__dt
-            .item-content__fild__dt__label 販売価格
+            .item-content__fild__dt__label
+            = f.label :price, "販売価格"
             .item-content__fild__dt__required 必須
-          .item-content__text-fild
-            -# %input.text{:name => "name", :placeholder => "¥0", :type => "money", :value => ""}
+            %div
             = f.text_field :price, class:"item-content__text-fild",placeholder: "¥0"
         .item-content__reactid
           = f.submit '出品する', class: 'sellbtn'

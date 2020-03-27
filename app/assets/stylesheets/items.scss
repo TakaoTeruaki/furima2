@@ -82,16 +82,16 @@ body {
           border: solid 1px gray;
         }
       }
-        &__text-fild input {
-          width: 90%;
-          height: 45px;
-          margin: 1%;
-          padding: 10px;
-          border: solid 1px #ccc;
-          border-radius: 5px;
-        }
+      &__text-fild {
+        width: 90%;
+        height: 45px;
+        margin: 1%;
+        padding: 10px;
+        border: solid 1px #ccc;
+        border-radius: 5px;
+      }
       
-        &__text-area textarea {
+        &__text-area {
           width: 90%;
           height: 200px;
           margin: 1%;
@@ -99,7 +99,7 @@ body {
           border: solid 1px #ccc;
           border-radius: 5px;
         }
-        &__text-select select {
+        &__text-select {
           width: 90%;
           height: 45px;
           margin: 1%;
