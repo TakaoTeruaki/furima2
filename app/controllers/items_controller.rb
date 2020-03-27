@@ -5,11 +5,14 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:item_image).order('created_at DESC')
   end
 
   def create
-    Item.create(item_params)
+    # Item.create(item_params)
+    @item = Item.new(item_params)
+    # @item.create(item_params)
+    binding.pry
   end
 
   def edit

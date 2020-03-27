@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do
@@ -64,3 +65,8 @@ gem 'haml-rails'
 gem "font-awesome-sass"
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'devise'
+gem 'active_hash'
+gem 'ancestry' # 2020/3/25 高田追記(カテゴリー作成の為)
+gem 'jquery-rails' # 2020/3/25 高田追記(jQuery使用の為)
+gem 'jquery-turbolinks' # 2020/3/25 高田追記(jQuery使用の為)

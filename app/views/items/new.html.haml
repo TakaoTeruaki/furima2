@@ -26,15 +26,15 @@
             .item-content__fild__dt__label 
             = f.label :name, "商品名"
             .item-content__fild__dt__required 必須
-          %div
-            = f.text_field :name, class:"item-content__text-fild",placeholder: "40文字まで"
+            %div
+            = f.text_field :name, class:"item-content__text-fild",placeholder: "40文字"
         .item-content__fild
           .item-content__fild__dt
             .item-content__fild__dt__label
             = f.label :description, "商品説明"
             .item-content__fild__dt__required 必須
           %div
-            = f.text_area :name, class:"item-content__text-area",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+            -# = f.text_area :name, class:"item-content__text-area",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
       -# 商品詳細/カテゴリー/サイズ/ブランド/商品の状態
       .item-content
         .item-content__fild
@@ -43,8 +43,20 @@
             .item-content__fild__dt__label
             = f.label :category_id, "カテゴリー"
             .item-content__fild__dt__required 必須
+            .item-content__fild__dt__label.parent
+              %select#parent
+                %option{value: 0} ---
+                - Category.where('ancestry IS NULL').each do |category|
+                  %option{value: "#{category.id}"} #{category.name}
+              %i.fas.fa-chevron-down
+            .item-content__fild__dt__label.child
+              %select#child
+              %i.fas.fa-chevron-down
+            .item-content__fild__dt__label.grand_child
+              = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
+              %i.fas.fa-chevron-down
           %div
-            = f.collection_select :category, Category.all, :id, :name, prompt: "" ,class: "item-content__text-select"
+            -# = f.collection_select :category, Category.all, :id, :name, prompt: "" ,class: "item-content__text-select"
             -# %select{:name => "カテゴリー", :size => ""}
             -# %select{:name => "カテゴリー", :size => ""}
             -# %select{:name => "カテゴリー", :size => ""}
@@ -54,7 +66,7 @@
             = f.label :size_id, "サイズ"
             .item-content__fild__dt__required 必須
             %div
-            = f.collection_select :size, Size.all, :id, :name, prompt: "",class: "item-content__text-select"
+            -# = f.collection_select :size, Size.all, :id, :name, prompt: "",class: "item-content__text-select"
         .item-content__fild
           .item-content__fild__dt
             .item-content__fild__dt__label
@@ -62,13 +74,12 @@
             .item-content__fild__dt__any 任意
             %div
             = f.text_field :name, class:"item-content__text-fild",placeholder: "例シャネル"
-
         .item-content__fild
           .item-content__fild__dt
             .item-content__fild__dt__label
             = f.label :status, "商品の状態"
             .item-content__fild__dt__required 必須
-            = f.collection_select :status, Status.all, :id, :name, prompt: "",class: "item-content__text-select"
+            -# = f.collection_select :status, Status.all, :id, :name, prompt: "",class: "item-content__text-select"
 
       -# 配送について/配送の負担/発送の方法/発送元の地域/発送までの日数
       .item-content
@@ -79,28 +90,28 @@
             = f.label :burden, "配送の負担"
             .item-content__fild__dt__required 必須
             %div
-            = f.collection_select :burden, Burden.all, :id, :name, prompt: "",class: "item-content__text-select"
+            -# = f.collection_select :burden, Burden.all, :id, :name, prompt: "",class: "item-content__text-select"
         .item-content__fild
           .item-content__fild__dt
-            .item-content__fild__dt__label 発送の方法
+            .item-content__fild__dt__label 
             = f.label :method, "発送の方法"
             .item-content__fild__dt__required 必須
             %div
-            = f.collection_select :method, Method.all, :id, :name, prompt: "",class: "item-content__text-select"
+            -# = f.collection_select :method, Method.all, :id, :name, prompt: "",class: "item-content__text-select"
         .item-content__fild
           .item-content__fild__dt
             .item-content__fild__dt__label 
             = f.label :prefectures_id, "発送元の地域"
             .item-content__fild__dt__required 必須
             %div
-            = f.collection_select :prefactures, Prefactures.all, :id, :name, prompt: "",class: "item-content__text-select"
+            -# = f.collection_select :prefactures, Prefactures.all, :id, :name, prompt: "",class: "item-content__text-select"
         .item-content__fild
           .item-content__fild__dt
             .item-content__fild__dt__label
             = f.label :date, "発送までの日数"
             .item-content__fild__dt__required 必須
             %div
-            = f.collection_select :date, Date.all, :id, :name, prompt: "",class: "item-content__text-select"
+            -# = f.collection_select :date, Date.all, :id, :name, prompt: "",class: "item-content__text-select"
 
       -# 価格/出品ボタン/もどるリンク
       .item-content
