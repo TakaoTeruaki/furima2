@@ -44,16 +44,17 @@
             = f.label :category_id, "カテゴリー"
             .item-content__fild__dt__required 必須
             .item-content__fild__dt__label.parent
-              %select#parent
-                %option{value: 0} ---
-                - Category.where('ancestry IS NULL').each do |category|
-                  %option{value: "#{category.id}"} #{category.name}
-              %i.fas.fa-chevron-down
-            .item-content__fild__dt__label.child
-              %select#child
-              %i.fas.fa-chevron-down
-            .item-content__fild__dt__label.grand_child
-              = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
+              = f.collection_select :category_id, @parents, :id, :name,{prompt: "---"}, class: "item-content__fild__dt__label.parent", id: "parent-form", name: 'item[category_id][]'
+            -#   %select#parent
+            -#     %option{value: 0} ---
+            -#     - Category.where('ancestry IS NULL').each do |category|
+            -#       %option{value: "#{category.id}"} #{category.name}
+            -#   %i.fas.fa-chevron-down
+            -# .item-content__fild__dt__label.child
+            -#   %select#child
+            -#   %i.fas.fa-chevron-down
+            -# .item-content__fild__dt__label.grand_child
+              -# = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
               %i.fas.fa-chevron-down
           %div
             -# = f.collection_select :category, Category.all, :id, :name, prompt: "" ,class: "item-content__text-select"
@@ -73,7 +74,7 @@
             = f.label :bland_id, "ブランド"
             .item-content__fild__dt__any 任意
             %div
-            = f.text_field :name, class:"item-content__text-fild",placeholder: "例シャネル"
+            -# = f.text_field :name, class:"item-content__text-fild",placeholder: "例シャネル"
         .item-content__fild
           .item-content__fild__dt
             .item-content__fild__dt__label

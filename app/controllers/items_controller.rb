@@ -6,13 +6,13 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @items = Item.includes(:item_image).order('created_at DESC')
+    @parents = Category.all.order("id ASC").limit(1)
   end
 
   def create
     # Item.create(item_params)
     @item = Item.new(item_params)
     # @item.create(item_params)
-    binding.pry
   end
 
   def edit
@@ -27,6 +27,16 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.destroy
+  end
+
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+        #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+      end
+    end
   end
 
   private
