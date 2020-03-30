@@ -6,13 +6,15 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @items = Item.includes(:item_image).order('created_at DESC')
-    @parents = Category.all.order("id ASC").limit(1)
+    @parents = Category.all.order("id ASC").limit(10)
   end
 
   def create
     # Item.create(item_params)
     @item = Item.new(item_params)
     # @item.create(item_params)
+    # binding.pry
+    @item.save
   end
 
   def edit
@@ -38,7 +40,7 @@ class ItemsController < ApplicationController
       end
     end
   end
-
+  
   private
   def item_params
     params.require(:item).permit(:name, :price, :category_id)

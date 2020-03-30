@@ -69,4 +69,4 @@ gem 'devise'
 gem 'active_hash'
 gem 'ancestry' # 2020/3/25 高田追記(カテゴリー作成の為)
 gem 'jquery-rails' # 2020/3/25 高田追記(jQuery使用の為)
-gem 'jquery-turbolinks' # 2020/3/25 高田追記(jQuery使用の為)
+# gem 'jquery-turbolinks' # 2020/3/25 高田追記(jQuery使用の為)
